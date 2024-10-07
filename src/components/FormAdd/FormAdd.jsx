@@ -6,7 +6,6 @@ const FormAdd = () => {
     const dispatch = useDispatch();
     const [countCcal, setCountCcal] = useState('');
     const [countGram, setCountGram] = useState('');
-    const [currentViewAdd, setcurrentViewAdd] = useState(false);
 
     const calculateCalories = countCcal / 100 * countGram;
 
