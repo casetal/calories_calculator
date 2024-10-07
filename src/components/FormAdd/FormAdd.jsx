@@ -6,6 +6,7 @@ const FormAdd = () => {
     const dispatch = useDispatch();
     const [countCcal, setCountCcal] = useState('');
     const [countGram, setCountGram] = useState('');
+    const [currentViewAdd, setcurrentViewAdd] = useState(false);
 
     const calculateCalories = countCcal / 100 * countGram;
 
@@ -19,7 +20,16 @@ const FormAdd = () => {
                 <label htmlFor="input-gram" className="mb-2 block text-sm font-medium text-gray-900">How many grams?</label>
                 <input className="input-gram bg-gray-50 rounded-md border border-gray-300 ps-2 p-2.5 m-2" type="text" value={countGram} onChange={e => setCountGram(e.target.value)}/>
             </div>
-            <button className="text-white bg-blue-700 rounded-md px-5 py-2.5 text-center m-2" onClick={() => { dispatch(increment(calculateCalories)); setCountCcal(''); setCountGram('');}}>Add</button>
+            <p>Result: {calculateCalories}</p>
+            <button
+                className="text-white bg-blue-700 rounded-md px-5 py-2.5 text-center m-2"
+                onClick={() => {
+                    setcurrentViewAdd(true);
+                    dispatch(increment(calculateCalories));
+                    setCountCcal('');
+                    setCountGram('');
+                }}>Add</button>
+
         </div>
     );
 }
